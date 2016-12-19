@@ -5,10 +5,10 @@
 <h2>Project Tasks</h2>
 <ol>
 <li>
-<a target="_new" href="addedlater">Recognising The Community Partner</a>
+<a target="_new" href="https://raw.githubusercontent.com/HITAM-EPICS/a-new-beginning/master/docs/task1.txt">Recognising The Community Partner</a>
 </li>
 <li>
-<a target="_new" href="addedlater">Team Roles and Schedules</a>
+<a target="_new" href="https://hitam-epics.github.io/a-new-beginning/task2.txt">Team Roles and Schedules</a>
 </li>
 </ol>
 
