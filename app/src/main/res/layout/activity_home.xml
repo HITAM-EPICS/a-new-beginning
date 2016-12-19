@@ -41,7 +41,6 @@
             style="@style/Base.Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:drawableLeft="@drawable/volunteer"
             android:text="Register as Volunteer" />
     </LinearLayout>
 
