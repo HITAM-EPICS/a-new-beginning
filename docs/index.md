@@ -1,20 +1,15 @@
-<H2>About Community Partner - A New Beginning for Homeless</h2>
-<p><b>A new beginning for homeless</b> is a NGO active in hyderabad providing shelter and food to homeless and needy people around the city.</p>
-<hr/>
-
-<h2>Project Tasks</h2>
-<ol>
-<li>
-<a target="_new" href="https://raw.githubusercontent.com/HITAM-EPICS/a-new-beginning/master/docs/task1.txt">Recognising The Community Partner</a>
-</li>
-<li>
-<a target="_new" href="https://hitam-epics.github.io/a-new-beginning/task2.txt">Team Roles and Schedules</a>
-</li>
-</ol>
+## About Community Partner - A New Beginning for Homeless
+**A new beginning for homeless** is a NGO active in hyderabad providing shelter and food to homeless and needy people around the city.
 
 <hr/>
 
-<h2>Updaets(Recent on Top)</h2>
+## Project Tasks
+
+1. [Recognising The Community Partner](https://raw.githubusercontent.com/HITAM-EPICS/a-new-beginning/master/docs/task1.txt)
+2. [Team Roles and Schedules](https://hitam-epics.github.io/a-new-beginning/task2.txt)
 
 <hr/>
 
+## Updaets(Recent on Top)
+
+<hr/>
