@@ -23,7 +23,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         View newView = convertView;
         if (newView == null) {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            newView = inflater.inflate(R.layout.item, parent);
+            newView = inflater.inflate(R.layout.item, null);
         }
 
         Item currentItem = getItem(position);
