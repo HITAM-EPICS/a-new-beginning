@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "530223041484",
+    "firebase_url": "https://a-new-beginning-ce7ff.firebaseio.com",
+    "project_id": "a-new-beginning-ce7ff",
+    "storage_bucket": "a-new-beginning-ce7ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530223041484:android:6999c02a9bfc4f7c",
+        "android_client_info": {
+          "package_name": "org.hitam.epics.biswajeet.anewbeginning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530223041484-565s6b2565v0hmkooddutlut3b1krmv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKN8RMt29ZGR1sgx2LPZ806FSPGe_z17g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

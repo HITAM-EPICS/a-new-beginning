@@ -1,4 +1,4 @@
-package com.example.biswajeet.anewbeginning;
+package org.hitam.epics.biswajeet.anewbeginning;
 
 import org.junit.Test;
 

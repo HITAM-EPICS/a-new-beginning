@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">A New Beginning</string>
     <string name="login">Login</string>
+    <string name="register_as_volunteer">Register as Volunteer</string>
 </resources>

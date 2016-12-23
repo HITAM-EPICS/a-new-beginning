@@ -1,4 +1,4 @@
-package com.example.biswajeet.anewbeginning;
+package org.hitam.epics.biswajeet.anewbeginning;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -20,3 +20,4 @@ public class SplashScreenActivity extends AppCompatActivity {
         }, 3000);   //displays the splash screen for 300ms (3Seconds)
     }
 }
+

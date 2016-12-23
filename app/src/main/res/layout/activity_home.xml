@@ -10,18 +10,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".SplashScreenActivity">
+    tools:context=".HomeActivity">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo2"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="@string/app_name"
+        android:text="A New Beginning\n For Homeless"
+        android:textColor="#f904"
         android:textSize="40sp" />
 
     <LinearLayout
@@ -33,16 +35,35 @@
 
         <Button
             style="@style/Base.Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:fontFamily="serif"
+            android:textColor="#fff"
+            android:background="@drawable/round_button"
+            android:layout_margin="10dp"
             android:text="@string/login" />
 
         <Button
             style="@style/Base.Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:text="Register as Volunteer" />
+            android:layout_height="wrap_content"
+            android:textSize="19sp"
+            android:textColor="#fff"
+            android:fontFamily="serif"
+            android:background="@drawable/round_button"
+            android:drawableLeft="@drawable/volunteer"
+            android:layout_margin="10dp"
+            android:text="@string/register_as_volunteer" />
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="GUEST?"
+            android:fontFamily="serif"
+            android:onClick="Guest_menu"
+            android:textSize="26sp"
+            android:background="@drawable/round_button"/>
     </LinearLayout>
 
-
 </LinearLayout>
+

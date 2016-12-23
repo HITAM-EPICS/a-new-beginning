@@ -1,4 +1,4 @@
-package com.example.biswajeet.anewbeginning;
+package org.hitam.epics.biswajeet.anewbeginning;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
