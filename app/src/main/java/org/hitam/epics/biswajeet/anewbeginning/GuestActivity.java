@@ -1,5 +1,7 @@
 package org.hitam.epics.biswajeet.anewbeginning;
 
+import android.content.Intent;
+import android.gesture.GestureUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +35,8 @@ public class GuestActivity extends AppCompatActivity {
                 switch (i){
                     case 0:
                         Toast.makeText(GuestActivity.this,"Food",Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(GuestActivity.this,ItemListActivity.class);
+                        startActivity(intent);
                         break;
                     case 1:
                         Toast.makeText(GuestActivity.this,"Clothes",Toast.LENGTH_SHORT).show();
