@@ -11,8 +11,8 @@
 
 <hr/>
 
-## Updaets(Recent on Top)
+## Updates(Recent on Top)
 
-[Release 1](https://github.com/HITAM-EPICS/a-new-beginning/releases/download/V0.1-alpha/ANBFH.apk)
+[Alpha 1](https://github.com/HITAM-EPICS/a-new-beginning/releases/download/V0.1-alpha/ANBFH.apk)
 
 <hr/>
