@@ -5,11 +5,14 @@
 
 ## Project Tasks
 
+
 1. [Recognising The Community Partner](https://raw.githubusercontent.com/HITAM-EPICS/a-new-beginning/master/docs/task1.txt)
 2. [Team Roles and Schedules](https://hitam-epics.github.io/a-new-beginning/task2.txt)
 
 <hr/>
 
 ## Updaets(Recent on Top)
+
+[Release 1](https://github.com/HITAM-EPICS/a-new-beginning/releases/download/V0.1-alpha/ANBFH.apk)
 
 <hr/>
