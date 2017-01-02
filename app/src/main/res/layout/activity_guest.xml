@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/Item2"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -15,10 +15,10 @@
         style="@style/TextAppearance.AppCompat.Display2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="cursive"
         android:text="Guest"
         android:textAlignment="center"
-        android:textColor="#000"
+        android:textColor="#451143"
         android:textStyle="bold" />
 
     <android.support.v7.widget.CardView xmlns:card-view="http://schemas.android.com/apk/res-auto"
@@ -44,6 +44,8 @@
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:text="Donate Food"
+                android:textColor="#00E8D3"
+                android:fontFamily="cursive"
                 android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
@@ -59,7 +61,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/food"
+            android:background="@drawable/clothes"
             android:backgroundTint="@color/secondary_text"
             android:backgroundTintMode="multiply"
             android:gravity="center">
@@ -71,6 +73,8 @@
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:text="Donate Clothes"
+                android:fontFamily="cursive"
+                android:textColor="#00E8D3"
                 android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
@@ -86,7 +90,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/food"
+            android:background="@drawable/groceries"
             android:backgroundTint="@color/secondary_text"
             android:backgroundTintMode="multiply"
             android:gravity="center">
@@ -98,6 +102,8 @@
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:text="Donate Grocery"
+                android:fontFamily="cursive"
+                android:textColor="#00E8D3"
                 android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
