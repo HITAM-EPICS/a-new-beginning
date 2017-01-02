@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">A New Beginning</string>
+    <string name="app_name">A New Beginning For Homeless</string>
     <string name="login">Login</string>
     <string name="register_as_volunteer">Register as Volunteer</string>
-    <string name="title_item_list">Items</string>
-    <string name="title_item_detail">Item Detail</string>
 </resources>

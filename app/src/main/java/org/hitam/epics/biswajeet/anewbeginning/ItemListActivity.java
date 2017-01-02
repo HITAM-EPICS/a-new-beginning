@@ -1,12 +1,13 @@
 package org.hitam.epics.biswajeet.anewbeginning;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
 
 import java.util.ArrayList;
 
-public class ItemListActivity extends AppCompatActivity {
+public class ItemListActivity extends Activity {
     private GridView itemListGridView;
 
     @Override
