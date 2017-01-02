@@ -22,15 +22,28 @@ public class GuestActivity extends Activity {
 
     public void donateFood(View view) {
         Toast.makeText(GuestActivity.this, "Food", Toast.LENGTH_SHORT).show();
+        Bundle extras = new Bundle();
+        extras.putInt("donate", 0);
         Intent intent = new Intent(GuestActivity.this, ItemListActivity.class);
+        intent.putExtras(extras);
         startActivity(intent);
     }
 
     public void donateClothes(View view) {
         Toast.makeText(GuestActivity.this, "Clothes", Toast.LENGTH_SHORT).show();
+        Bundle extras = new Bundle();
+        extras.putInt("donate", 1);
+        Intent intent = new Intent(GuestActivity.this, ItemListActivity.class);
+        intent.putExtras(extras);
+        startActivity(intent);
     }
 
     public void donateGrocery(View view) {
         Toast.makeText(GuestActivity.this, "Groceries", Toast.LENGTH_SHORT).show();
+        Bundle extras = new Bundle();
+        extras.putInt("donate", 2);
+        Intent intent = new Intent(GuestActivity.this, ItemListActivity.class);
+        intent.putExtras(extras);
+        startActivity(intent);
     }
 }

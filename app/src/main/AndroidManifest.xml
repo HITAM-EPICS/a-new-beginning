@@ -18,6 +18,7 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".GuestActivity" />
         <activity android:name=".ItemListActivity" />
+        <activity android:name=".CheckoutActivity"></activity>
     </application>
 
 </manifest>

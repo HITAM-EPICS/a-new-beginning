@@ -29,7 +29,9 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         Item currentItem = getItem(position);
 
         ImageView itemIcon = (ImageView) newView.findViewById(R.id.item_icon);
-//        Todo: to be implemented
+        if (currentItem.getPictureURL() != 0) {
+            itemIcon.setImageResource(currentItem.getPictureURL());
+        }
 
         TextView itemName = (TextView) newView.findViewById(R.id.item_name);
         itemName.setText(currentItem.getName());

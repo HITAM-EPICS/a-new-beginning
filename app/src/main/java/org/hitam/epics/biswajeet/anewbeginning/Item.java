@@ -6,14 +6,14 @@ package org.hitam.epics.biswajeet.anewbeginning;
 public class Item {
     private String name;
     private float price;
-    private String pictureURL;
+    private int pictureURL;
 
     /*Empty Constructor for reference in Array List*/
     public Item() {
     }
 
     /*Constructor to create item object*/
-    public Item(String name, float price, String pictureURL) {
+    public Item(String name, float price, int pictureURL) {
         this.name = name;
         this.price = price;
         this.pictureURL = pictureURL;
@@ -22,7 +22,7 @@ public class Item {
     public Item(String name, float price) {
         this.name = name;
         this.price = price;
-        pictureURL = null;
+        pictureURL = 0;
     }
 
     public String getName() {
@@ -33,7 +33,7 @@ public class Item {
         return price;
     }
 
-    public String getPictureURL() {
+    public int getPictureURL() {
         return pictureURL;
     }
 }
