@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "530223041484-tfl6s08t2363alj85duau0upe2ghfsom.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.hitam.epics.biswajeet.anewbeginning",
+            "certificate_hash": "92D641E6F8CA9A61B2BDC7DD5538A2E49BF97622"
+          }
+        },
+        {
           "client_id": "530223041484-565s6b2565v0hmkooddutlut3b1krmv7.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530223041484-565s6b2565v0hmkooddutlut3b1krmv7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 
@@ -25,17 +26,23 @@ public class ItemListActivity extends Activity {
         Bundle extras = getIntent().getExtras();
 
         if (extras.getInt("donate") == 0) {
-            items.add(new Item("Rice Bag", 500, R.drawable.rice));
-            items.add(new Item("Dal/kg", 40, R.drawable.dal));
-            items.add(new Item("Flour/kg", 30, R.drawable.flour));
-            items.add(new Item("Onions/kg", 35, R.drawable.onion));
-            items.add(new Item("potato", 35, R.drawable.potato));
+            items.add(new Item("VEG Curry(all items)", 45, R.drawable.vegcurry));
+            items.add(new Item("Non VEG Curry(all items)", 100, R.drawable.nonveg));
+            items.add(new Item("Roti + Veg items",60 , R.drawable.rotiveg));
+            items.add(new Item("Roti+ Non Veg Items", 80, R.drawable.rotinveg));
+            items.add(new Item("Veg Biryani",100, R.drawable.vegbiryank));
+            items.add(new Item("Chicken Biryani",120, R.drawable.chickenbir));
         } else if (extras.getInt("donate") == 1) {
             items.add(new Item("Old men", 300, R.drawable.oldmen));
             items.add(new Item("Old Women", 450, R.drawable.sareeold));
             items.add(new Item("kids", 350, R.drawable.kid));
             items.add(new Item("Mens", 459, R.drawable.shirts));
         } else if (extras.getInt("donate") == 2) {
+            items.add(new Item("Rice Bag", 500, R.drawable.rice1));
+            items.add(new Item("Dal/kg", 40, R.drawable.dal1));
+            items.add(new Item("Flour/kg", 30, R.drawable.flou1));
+            items.add(new Item("Onions/kg", 35, R.drawable.onions1));
+            items.add(new Item("potato", 35, R.drawable.potatoes));
             items.add(new Item("Coconut Oil", 57, R.drawable.cocunut));
             items.add(new Item("Soaps", 59, R.drawable.soap));
             items.add(new Item("Amruntanjan", 32, R.drawable.amrut));

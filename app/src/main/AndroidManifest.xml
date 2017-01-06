@@ -16,9 +16,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity" />
-        <activity android:name=".GuestActivity" />
+        <activity android:name=".DonateActivity" />
         <activity android:name=".ItemListActivity" />
-        <activity android:name=".CheckoutActivity"></activity>
+        <activity android:name=".CheckoutActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".VolunteerActivity" />
+        <activity android:name=".EventsActivity" />
+        <activity android:name=".ForgotpasswordActivity"></activity>
     </application>
 
 </manifest>
