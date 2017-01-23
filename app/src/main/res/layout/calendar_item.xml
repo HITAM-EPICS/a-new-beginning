@@ -12,10 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
+        android:textColor="#000"
         tools:text="Title of event" />
 
     <TextView
         android:id="@+id/event_time"
+        android:textColor="#000"
         style="@style/Base.TextAppearance.AppCompat.Small.Inverse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back13"
+    android:background="@drawable/login10"
     tools:context="org.hitam.epics.biswajeet.anewbeginning.DonateActivity">
 
     <ScrollView
@@ -19,16 +19,28 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
 
-            <TextView
-                style="@style/TextAppearance.AppCompat.Display2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="DONATE"
-                android:textAlignment="center"
-                android:textColor="#967D14"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content">
 
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Display2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="DONATE"
+                    android:textAlignment="center"
+                    android:textColor="#967D14"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:onClick="ShowCart"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/cart" />
+            </LinearLayout>
 
             <android.support.v7.widget.CardView xmlns:card-view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"

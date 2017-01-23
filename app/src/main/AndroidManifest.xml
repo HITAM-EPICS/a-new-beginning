@@ -2,12 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.hitam.epics.biswajeet.anewbeginning">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,11 +24,28 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".DonateActivity" />
         <activity android:name=".ItemListActivity" />
-        <activity android:name=".CheckoutActivity" />
+        <activity android:name=".AddToCartActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".VolunteerActivity" />
         <activity android:name=".EventsActivity" />
-        <activity android:name=".ForgotpasswordActivity"></activity>
+        <activity android:name=".ForgotpasswordActivity" />
+        <activity
+            android:name=".AboutActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".CheckoutActivity" />
+        <activity android:name=".AddItemActivity"></activity>
     </application>
 
 </manifest>

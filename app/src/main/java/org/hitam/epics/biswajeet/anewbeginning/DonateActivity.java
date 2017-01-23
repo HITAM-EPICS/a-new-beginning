@@ -43,4 +43,8 @@ public class DonateActivity extends Activity {
         intent.putExtras(extras);
         startActivity(intent);
     }
+
+    public void ShowCart(View view) {
+        startActivity(new Intent(this,CheckoutActivity.class));
+    }
 }

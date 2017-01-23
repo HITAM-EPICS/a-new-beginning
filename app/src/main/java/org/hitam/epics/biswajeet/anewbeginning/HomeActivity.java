@@ -1,15 +1,25 @@
 package org.hitam.epics.biswajeet.anewbeginning;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -17,10 +27,20 @@ public class HomeActivity extends Activity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private CallbackManager mCallbackManager;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         setContentView(R.layout.activity_home);
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -29,7 +49,8 @@ public class HomeActivity extends Activity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
 //                    if (user.isEmailVerified()) {
-                        startActivity(new Intent(HomeActivity.this, VolunteerActivity.class));
+                    CheckoutActivity.CheckOutList.clear();
+                    startActivity(new Intent(HomeActivity.this, VolunteerActivity.class));
 //                    } else {
                         /*todo: display a message to verify email id */
 
@@ -38,6 +59,45 @@ public class HomeActivity extends Activity {
                 }
             }
         };
+
+        mCallbackManager = CallbackManager.Factory.create();
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setReadPermissions("email", "public_profile");
+        loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+            }
+        });
+    }
+
+    private void handleFacebookAccessToken(AccessToken token) {
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this, R.style.AppTheme_NoActionBar);
+                            builder.setMessage(task.getException().getMessage().split(":")[1])
+                                    .setPositiveButton("Close", null);
+                            builder.create().show();
+                        }
+
+                    }
+                });
     }
 
 
@@ -64,14 +124,14 @@ public class HomeActivity extends Activity {
     }
 
     public void login(View view) {
-        final EditText email=(EditText)findViewById(R.id.email);
-        final EditText password=(EditText)findViewById(R.id.password);
-        if (email.getText().toString().trim().length()==0){
+        final EditText email = (EditText) findViewById(R.id.email);
+        final EditText password = (EditText) findViewById(R.id.password);
+        if (email.getText().toString().trim().length() == 0) {
             email.setError("emailId Required");
             return;
         }
 
-        if(password.getText().toString().length()==0){
+        if (password.getText().toString().length() == 0) {
             password.setError("password Required");
             return;
         }
@@ -80,7 +140,7 @@ public class HomeActivity extends Activity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (!task.isSuccessful()){
+                        if (!task.isSuccessful()) {
                             email.setError("Invalid email or password");
                             password.setError("Invalid email or password");
 
@@ -91,6 +151,10 @@ public class HomeActivity extends Activity {
     }
 
     public void Forgotpass(View view) {
-        startActivity(new Intent(this,ForgotpasswordActivity.class));
+        startActivity(new Intent(this, ForgotpasswordActivity.class));
+    }
+
+    public void About(View view) {
+        startActivity(new Intent(this, AboutActivity.class));
     }
 }
