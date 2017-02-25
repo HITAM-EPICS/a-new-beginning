@@ -23,6 +23,8 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import org.hitam.epics.biswajeet.anewbeginning.support.Mailing;
+
 public class HomeActivity extends Activity {
 
     private FirebaseAuth mAuth;
@@ -47,8 +49,10 @@ public class HomeActivity extends Activity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
+
                 if (user != null) {
 //                    if (user.isEmailVerified()) {
+                    Mailing.userMail=user.getEmail();
                     CheckoutActivity.CheckOutList.clear();
                     startActivity(new Intent(HomeActivity.this, VolunteerActivity.class));
 //                    } else {
@@ -57,6 +61,7 @@ public class HomeActivity extends Activity {
 //                        firebaseAuth.signOut();
 //                    }
                 }
+                hideLoading();
             }
         };
 
@@ -86,6 +91,7 @@ public class HomeActivity extends Activity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
@@ -94,7 +100,7 @@ public class HomeActivity extends Activity {
                             builder.setMessage(task.getException().getMessage().split(":")[1])
                                     .setPositiveButton("Close", null);
                             builder.create().show();
-                        }
+                        }hideLoading();
 
                     }
                 });
@@ -124,15 +130,18 @@ public class HomeActivity extends Activity {
     }
 
     public void login(View view) {
+        showLoading();
         final EditText email = (EditText) findViewById(R.id.email);
         final EditText password = (EditText) findViewById(R.id.password);
         if (email.getText().toString().trim().length() == 0) {
             email.setError("emailId Required");
+            hideLoading();
             return;
         }
 
         if (password.getText().toString().length() == 0) {
             password.setError("password Required");
+            hideLoading();
             return;
         }
 
@@ -144,17 +153,30 @@ public class HomeActivity extends Activity {
                             email.setError("Invalid email or password");
                             password.setError("Invalid email or password");
 
+                            hideLoading();
                         }
 
                     }
                 });
     }
 
+    private void showLoading(){
+        findViewById(R.id.loading).setVisibility(View.VISIBLE);
+        findViewById(R.id.content).setVisibility(View.GONE);
+    }
+
+    private void hideLoading(){
+        findViewById(R.id.loading).setVisibility(View.GONE);
+        findViewById(R.id.content).setVisibility(View.VISIBLE);
+    }
+
+
     public void Forgotpass(View view) {
         startActivity(new Intent(this, ForgotpasswordActivity.class));
     }
 
-    public void About(View view) {
-        startActivity(new Intent(this, AboutActivity.class));
+
+    public void Help(View view) {
+        startActivity(new Intent(this, HelpActivity.class));
     }
 }

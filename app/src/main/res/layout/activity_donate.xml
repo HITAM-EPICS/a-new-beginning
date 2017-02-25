@@ -53,7 +53,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/food"
+                    android:background="@drawable/groceries"
                     android:backgroundTint="@color/secondary_text"
                     android:backgroundTintMode="multiply"
                     android:gravity="center">
@@ -65,7 +65,7 @@
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Donate Meal"
+                        android:text="GROCERIES"
                         android:textColor="#00E8D3"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -82,7 +82,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/clothes"
+                    android:background="@drawable/cleanprod"
                     android:backgroundTint="@color/secondary_text"
                     android:backgroundTintMode="multiply"
                     android:gravity="center">
@@ -94,7 +94,7 @@
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Donate Clothes"
+                        android:text="CLEANING  \n\tPRODUCTS "
                         android:textColor="#00E8D3"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -111,7 +111,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/groceries"
+                    android:background="@drawable/toiletries"
                     android:backgroundTint="@color/secondary_text"
                     android:backgroundTintMode="multiply"
                     android:gravity="center">
@@ -123,7 +123,7 @@
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Donate Grocery"
+                        android:text="TOILETRIES"
                         android:textColor="#00E8D3"
                         android:textStyle="bold" />
                 </RelativeLayout>

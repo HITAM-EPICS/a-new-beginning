@@ -18,7 +18,7 @@ public class DonateActivity extends Activity {
     }
 
     public void donateFood(View view) {
-        Toast.makeText(DonateActivity.this, "Food", Toast.LENGTH_SHORT).show();
+        Toast.makeText(DonateActivity.this, "Groceries", Toast.LENGTH_SHORT).show();
         Bundle extras = new Bundle();
         extras.putInt("donate", 0);
         Intent intent = new Intent(DonateActivity.this, ItemListActivity.class);
@@ -27,7 +27,7 @@ public class DonateActivity extends Activity {
     }
 
     public void donateClothes(View view) {
-        Toast.makeText(DonateActivity.this, "Clothes", Toast.LENGTH_SHORT).show();
+        Toast.makeText(DonateActivity.this, "Cleaning Products", Toast.LENGTH_SHORT).show();
         Bundle extras = new Bundle();
         extras.putInt("donate", 1);
         Intent intent = new Intent(DonateActivity.this, ItemListActivity.class);
@@ -36,7 +36,7 @@ public class DonateActivity extends Activity {
     }
 
     public void donateGrocery(View view) {
-        Toast.makeText(DonateActivity.this, "Groceries", Toast.LENGTH_SHORT).show();
+        Toast.makeText(DonateActivity.this, "Toiletries", Toast.LENGTH_SHORT).show();
         Bundle extras = new Bundle();
         extras.putInt("donate", 2);
         Intent intent = new Intent(DonateActivity.this, ItemListActivity.class);

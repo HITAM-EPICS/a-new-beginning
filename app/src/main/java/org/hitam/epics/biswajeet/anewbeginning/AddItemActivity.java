@@ -43,7 +43,7 @@ public class AddItemActivity extends Activity {
         setContentView(R.layout.activity_add_item);
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("donation_items/grocery/");
+        reference = database.getReference("donation_items/cleaningProducts/");
 
         ItemNameEditText = (EditText) findViewById(R.id.add_item_name);
         ItemPriceEditText = (EditText) findViewById(R.id.add_item_price);
@@ -102,7 +102,7 @@ public class AddItemActivity extends Activity {
     private void uploadPic(final String ItemName) {
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
-        StorageReference ProfilePicRef = mStorageRef.child("donation_items/grocery/" + ItemName + ".jpg");
+        StorageReference ProfilePicRef = mStorageRef.child("donation_items/cleaningProducts/" + ItemName + ".jpg");
 
         ItemImageView.setDrawingCacheEnabled(true);
         ItemImageView.buildDrawingCache();

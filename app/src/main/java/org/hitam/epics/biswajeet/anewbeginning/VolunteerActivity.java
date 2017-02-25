@@ -10,6 +10,8 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.hitam.epics.biswajeet.anewbeginning.support.Mailing;
+
 public class VolunteerActivity extends Activity {
 
     @Override
@@ -29,6 +31,7 @@ public class VolunteerActivity extends Activity {
             LoginManager.getInstance().logOut();
         }
         CheckoutActivity.CheckOutList.clear();
+        Mailing.userMail = null;
         finish();
     }
 

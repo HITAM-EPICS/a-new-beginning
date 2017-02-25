@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">A New Beginning For Homeless</string>
-    <string name="login">Login</string>
-    <string name="register_as_volunteer">Register as Volunteer</string>
     <string name="action_settings">Settings</string>
 
     <string name="facebook_app_id">372721609761019</string>

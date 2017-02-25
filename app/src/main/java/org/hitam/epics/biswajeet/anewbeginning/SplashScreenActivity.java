@@ -5,9 +5,18 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import static org.hitam.epics.biswajeet.anewbeginning.support.Mailing.organisationMail;
+import static org.hitam.epics.biswajeet.anewbeginning.support.Mailing.vendorMail;
 
 public class SplashScreenActivity extends Activity {
 
@@ -15,6 +24,33 @@ public class SplashScreenActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("payment");
+        reference.child("organisation_mail").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                organisationMail = dataSnapshot.getValue(String.class);
+                Log.e("onDataChange: ", organisationMail);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                organisationMail = null;
+            }
+        });
+
+        reference.child("vendor_mail").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                vendorMail = dataSnapshot.getValue(String.class);
+                Log.e("onDataChange: ", vendorMail);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                vendorMail = null;
+            }
+        });
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
@@ -29,5 +65,3 @@ public class SplashScreenActivity extends Activity {
     }
 }
 
-//sale jopdike.. kaha mar gya?abey idhar hi hu app run kar raha hu
-//?chala? nahi re is baar aur complex aara.. kya aa rha? tere phone ki memory bhar ja ri

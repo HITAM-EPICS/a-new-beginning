@@ -1,12 +1,34 @@
 package org.hitam.epics.biswajeet.anewbeginning.support;
 
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import org.hitam.epics.biswajeet.anewbeginning.CheckoutActivity;
+
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  * Created by biswajeet on 23/1/17.
  */
 
 public class Mailing {
+    static Message message;
     static String MailContentPart1 = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></head><body>" +
             "<div style=\"margin:0 auto;padding:0\">" +
             "<div style=\"background:#ffffff\">" +
@@ -23,7 +45,7 @@ public class Mailing {
             "<tr>" +
             "<td style=\"width:48px\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/assets.paytm.com/promotion/Aziz/folder/wallet-statement.png\" style=\"float:left\"></td>" +
             "<td>" +
-            "<div style=\"float:left;margin:2px 0 0 26px;font-size:22px;font-weight:100;line-height:29px\"> Your <span style=\"font-weight:400\">Donation Order</span> for <br/><span style=\"color:#00b0de;font-weight:600\">A New Beggining for homeless</span>" +
+            "<div style=\"float:left;margin:2px 0 0 26px;font-size:22px;font-weight:100;line-height:29px\"><span style=\"font-weight:400\">Donation Order</span> for <br/><span style=\"color:#00b0de;font-weight:600\">A New Beggining for homeless</span>" +
             "<br/><span style=\"color:#000000;font-weight:600;font-size:12px\">";
 
     static String MailContentPart2 = "</span></div></td></tr>" +
@@ -59,20 +81,114 @@ public class Mailing {
             "</body></html>";
 
     static String Bill = "";
+    public static String userMail = null;
 
     public static void makePaymentBill() {
+
+
         Bill = "";
         for (CheckoutItem item :
                 CheckoutActivity.CheckOutList) {
-
+            Bill += BillItem1;
+            Bill += item.getName();
+            Bill += BillItem2;
+            Bill += (item.getPrice() * item.getQuantity());
+            Bill += BillItem3;
+            Bill += item.getQuantity();
+            Bill += BillItem4;
         }
+        Bill += (Total1 + CheckoutActivity.calculateTotal() + Total2);
     }
 
-    public static void sendPaymentIntialisingMail() {
+    public static String vendorMail = "";
+    public static String organisationMail = "";
 
+    public static void sendPaymentIntialisingMail() {
+        String Content = MailContentPart1 +
+                MailContentPart2 +
+                Bill +
+                MailEnd;
+
+        String to = organisationMail + "," + vendorMail;//change accordingly
+        sendMail(Content, to, "Payment Initialisation Started"); // In case payment is made but confirmation mail got error. This will be backup for bill
     }
 
     public static void sendPaymentConfirmationMail(String paymentid) {
+        String Content = MailContentPart1 +
+                "Payment Id: " +
+                paymentid +
+                MailContentPart2 +
+                Bill +
+                MailEnd;
 
+        String to = organisationMail + "," + vendorMail;//change accordingly
+        Log.e("sendMail: ", userMail);
+        if (userMail != null) {
+            to += ("," + userMail);
+        }
+        sendMail(Content, to, "Order Details " + paymentid);
+    }
+
+    private static void sendMail(Object content, String to, String subject) {
+        // Recipient's email ID needs to be mentioned.
+
+        // Sender's email ID needs to be mentioned
+        String from = "order.anbfh@gmail.com";//change accordingly
+        final String username = "order.anbfh";//change accordingly
+        final String password = "anbfh@123";//change accordingly
+
+        // Assuming you are sending email through relay.jangosmtp.net
+        String host = "smtp.gmail.com";
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", "587");
+
+        // Get the Session object.
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        try {
+            // Create a default MimeMessage object.
+            message = new MimeMessage(session);
+
+            // Set From: header field of the header.
+            message.setFrom(new InternetAddress(from));
+
+            // Set To: header field of the header.
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(to));
+
+            // Set Subject: header field
+            message.setSubject(subject);
+
+            message.setContent(content, "text/html");
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+        SendMail sendMail = new SendMail();
+        sendMail.execute();
+    }
+
+    private static class SendMail extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                Log.e("doInBackground: ", "Start of sending mail");
+                Transport.send(message);
+                Log.e("doInBackground: ", "End of sending mail");
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
     }
 }

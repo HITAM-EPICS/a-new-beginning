@@ -40,7 +40,12 @@ public class ItemListActivity extends Activity {
 
         if (extras.getInt("donate") == 0) {
             reference = database.getReference("donation_items/grocery/");
-        } else {
+        }
+        else if(extras.getInt("donate")==1){
+            reference=database.getReference("donation_items/cleaningProducts");
+        }
+
+        else {
             finish();
         }
 
@@ -93,5 +98,7 @@ public class ItemListActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        itemListGridView.setEmptyView(findViewById(R.id.empty_view));
     }
 }

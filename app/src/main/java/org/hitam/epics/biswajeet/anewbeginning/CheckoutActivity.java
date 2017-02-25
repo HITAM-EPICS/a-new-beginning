@@ -30,7 +30,6 @@ public class CheckoutActivity extends Activity {
     ListView CheckOutListView;
     TextView TotalPrice;
 
-
     private static final String TAG = "Payment";
 
 
@@ -48,7 +47,7 @@ public class CheckoutActivity extends Activity {
 
     }
 
-    public double calculateTotal() {
+    public static double calculateTotal() {
         double total = 0;
         for (CheckoutItem checkoutItem : CheckOutList) {
             total += checkoutItem.getQuantity() * checkoutItem.getPrice();
@@ -62,9 +61,10 @@ public class CheckoutActivity extends Activity {
             makePaymentBill();
             sendPaymentIntialisingMail();
             QWParams qwParams = new QWParams();//object creation
+
             qwParams.setMobile("8801485611");
-            qwParams.setSignature("6b76594e04bd5e55fa16974559e542963bfa0b8e11a1ff597aee7314ee070819");
-            qwParams.setPartnerid("216");
+            qwParams.setSignature("b724fb8bb26842f4cc0f7a4e7d76c7a85c7e44dd9d1dfa6425e9a1c60cde30ab");
+            qwParams.setPartnerid("272");
             qwParams.setAmount(String.valueOf(calculateTotal()));
             //For test environment
             qwParams.setEnv(QWConstants.ENV_LIVE); //Use QWConstants.ENV_UAT for testing.
@@ -89,6 +89,7 @@ public class CheckoutActivity extends Activity {
                     Log.d(TAG, "paymentid: " + paymentid + " msg :" + msg);
                     Toast.makeText(this, "paymentid " + paymentid + " msg " + msg + "", Toast.LENGTH_SHORT).show();
                     CheckOutList.clear();
+                    checkoutItemAdapter.notifyDataSetChanged();
                     sendPaymentConfirmationMail(paymentid);
                 } else if (resultCode == QWConstants.PAYMENT_FAILED_CODE) {
                     String paymentid = data.getStringExtra(QWConstants.PAYMENTID);
