@@ -9,12 +9,6 @@
     tools:context="org.hitam.epics.biswajeet.anewbeginning.VolunteerActivity"
     android:weightSum="1">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="additems"
-        android:text="add"/>
-
     <ImageButton
         android:layout_width="200dp"
         android:layout_height="100dp"

@@ -44,9 +44,9 @@ public class EventsActivity extends Activity {
         eventDateList = new ArrayList<>();
 
         eventList = new ArrayList<>();
-        eventList.add(new CalendarItem("Food Donation Camp", "05-01-2017", "01:00 PM", "04:00 PM", "Malakpet", 17.3731, 78.4900));
-        eventList.add(new CalendarItem("Shelters Event", "07-02-2017", "01:00 PM", "04:00 PM", "Bowenpally", 17.4645, 78.4725));
-        eventList.add(new CalendarItem("Free Medical Camp", "14-01-2017", "01:00 PM", "04:00 PM", "Gundlapochampally", 17.5758, 78.4724));
+        //eventList.add(new CalendarItem("Food Donation Camp", "05-01-2017", "01:00 PM", "04:00 PM", "Malakpet", 17.3731, 78.4900));
+        //eventList.add(new CalendarItem("Shelters Event", "07-02-2017", "01:00 PM", "04:00 PM", "Bowenpally", 17.4645, 78.4725));
+        //eventList.add(new CalendarItem("Free Medical Camp", "14-01-2017", "01:00 PM", "04:00 PM", "Gundlapochampally", 17.5758, 78.4724));
 
         for (CalendarItem item : eventList) {
             eventDateList.add(item.getDate());

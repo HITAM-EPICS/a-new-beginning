@@ -44,6 +44,9 @@ public class ItemListActivity extends Activity {
         else if(extras.getInt("donate")==1){
             reference=database.getReference("donation_items/cleaningProducts");
         }
+        else if(extras.getInt("donate")==2){
+            reference=database.getReference("donation_items/toiletries");
+        }
 
         else {
             finish();

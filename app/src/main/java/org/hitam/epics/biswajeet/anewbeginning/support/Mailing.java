@@ -45,7 +45,7 @@ public class Mailing {
             "<tr>" +
             "<td style=\"width:48px\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/assets.paytm.com/promotion/Aziz/folder/wallet-statement.png\" style=\"float:left\"></td>" +
             "<td>" +
-            "<div style=\"float:left;margin:2px 0 0 26px;font-size:22px;font-weight:100;line-height:29px\"><span style=\"font-weight:400\">Donation Order</span> for <br/><span style=\"color:#00b0de;font-weight:600\">A New Beggining for homeless</span>" +
+            "<div style=\"float:left;margin:2px 0 0 26px;font-size:22px;font-weight:100;line-height:29px\"><span style=\"font-weight:400\">Donation Order</span> for <br/><span style=\"color:#00b0de;font-weight:600\">A New Begining for homeless</span>" +
             "<br/><span style=\"color:#000000;font-weight:600;font-size:12px\">";
 
     static String MailContentPart2 = "</span></div></td></tr>" +
@@ -100,8 +100,8 @@ public class Mailing {
         Bill += (Total1 + CheckoutActivity.calculateTotal() + Total2);
     }
 
-    public static String vendorMail = "";
-    public static String organisationMail = "";
+//    public static String vendorMail = "";
+    public static String organisationMail = "Anewbeginningforhomeless@gmail.com";
 
     public static void sendPaymentIntialisingMail() {
         String Content = MailContentPart1 +
@@ -109,7 +109,7 @@ public class Mailing {
                 Bill +
                 MailEnd;
 
-        String to = organisationMail + "," + vendorMail;//change accordingly
+        String to = organisationMail+",order.anbfh@gmail.com";//change accordingly
         sendMail(Content, to, "Payment Initialisation Started"); // In case payment is made but confirmation mail got error. This will be backup for bill
     }
 
@@ -121,8 +121,8 @@ public class Mailing {
                 Bill +
                 MailEnd;
 
-        String to = organisationMail + "," + vendorMail;//change accordingly
-        Log.e("sendMail: ", userMail);
+        String to = organisationMail+",order.anbfh@gmail.com";//change accordingly
+//        Log.e("sendMail: ", userMail);
         if (userMail != null) {
             to += ("," + userMail);
         }

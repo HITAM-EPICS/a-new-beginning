@@ -1,6 +1,7 @@
 package org.hitam.epics.biswajeet.anewbeginning;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -73,25 +74,25 @@ public class RegisterActivity extends Activity {
         * */
 
         boolean errors = false;
-        if (FullName.length()==0){
+        if (FullName.length() == 0) {
             FullNameEditText.setError("Name Required");
             errors = true;
         }
 
-        if (Phone.length()<10){
+        if (Phone.length() < 10) {
             PhoneEditText.setError("Invalid Phone number");
-            errors=true;
+            errors = true;
         }
-        if(Password.length()<6){
+        if (Password.length() < 6) {
             PasswordEditText.setError("Minimum Password Size is 6");
-            errors=true;
+            errors = true;
         }
 
-        if(!Objects.equals(ConfirmPassword, Password)){
+        if (!ConfirmPassword.equals(Password)) {
             ConfirmPasswordEditText.setError("Password did not Match");
-            errors=true;
+            errors = true;
         }
-        if (errors){
+        if (errors) {
             return;
         }
 
@@ -99,17 +100,24 @@ public class RegisterActivity extends Activity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            /*todo: show a message to display error during registeration*/
+                            AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                            String[] s = task.getException().getMessage().split(":");
+                            if (s.length == 1) {
+                                builder.setMessage(s[0]);
+                            } else {
+                                builder.setMessage(s[1]);
+                            }
+
+                            builder.setPositiveButton("Close", null);
+                            builder.create().show();
                         } else {
                             Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                             RegisterActivity.this.finish();
                         }
-                        // ...
                     }
                 });
     }

@@ -1,22 +1,17 @@
 package org.hitam.epics.biswajeet.anewbeginning;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import static org.hitam.epics.biswajeet.anewbeginning.support.Mailing.organisationMail;
-import static org.hitam.epics.biswajeet.anewbeginning.support.Mailing.vendorMail;
 
 public class SplashScreenActivity extends Activity {
 
@@ -25,43 +20,38 @@ public class SplashScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("payment");
-        reference.child("organisation_mail").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                organisationMail = dataSnapshot.getValue(String.class);
-                Log.e("onDataChange: ", organisationMail);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                organisationMail = null;
-            }
-        });
-
-        reference.child("vendor_mail").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                vendorMail = dataSnapshot.getValue(String.class);
-                Log.e("onDataChange: ", vendorMail);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                vendorMail = null;
-            }
-        });
-
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class)); //moves from splash screen to home activity
-                SplashScreenActivity.this.finish();     //CLOSES THE activity after returning back(app closes)
+                if (isNetworkAvailable()) {
+                    startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class)); //moves from splash screen to home activity
+                    SplashScreenActivity.this.finish();     //CLOSES THE activity after returning back(app closes)
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SplashScreenActivity.this);
+                    builder.setTitle("Network Error")
+                            .setMessage("Unable to connect to internet. Please check your internet connectivity and try again.")
+                            .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    SplashScreenActivity.this.finish();
+                                }
+                            });
+                    builder.show();
+                }
             }
         }, 5000);   //displays the splash screen for 300ms (3Seconds)
     }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 }
 

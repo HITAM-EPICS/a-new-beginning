@@ -52,7 +52,7 @@ public class HomeActivity extends Activity {
 
                 if (user != null) {
 //                    if (user.isEmailVerified()) {
-                    Mailing.userMail=user.getEmail();
+                    Mailing.userMail = user.getEmail();
                     CheckoutActivity.CheckOutList.clear();
                     startActivity(new Intent(HomeActivity.this, VolunteerActivity.class));
 //                    } else {
@@ -96,11 +96,18 @@ public class HomeActivity extends Activity {
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this, R.style.AppTheme_NoActionBar);
-                            builder.setMessage(task.getException().getMessage().split(":")[1])
-                                    .setPositiveButton("Close", null);
+                            AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                            String[] s = task.getException().getMessage().split(":");
+                            if (s.length == 1) {
+                                builder.setMessage(s[0]);
+                            } else {
+                                builder.setMessage(s[1]);
+                            }
+
+                            builder.setPositiveButton("Close", null);
                             builder.create().show();
-                        }hideLoading();
+                        }
+                        hideLoading();
 
                     }
                 });
@@ -160,12 +167,12 @@ public class HomeActivity extends Activity {
                 });
     }
 
-    private void showLoading(){
+    private void showLoading() {
         findViewById(R.id.loading).setVisibility(View.VISIBLE);
         findViewById(R.id.content).setVisibility(View.GONE);
     }
 
-    private void hideLoading(){
+    private void hideLoading() {
         findViewById(R.id.loading).setVisibility(View.GONE);
         findViewById(R.id.content).setVisibility(View.VISIBLE);
     }

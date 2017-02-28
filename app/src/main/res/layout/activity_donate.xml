@@ -29,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="DONATE"
+                    android:text="    DONATE"
                     android:textAlignment="center"
                     android:textColor="#967D14"
                     android:textStyle="bold" />
@@ -64,10 +64,11 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="GROCERIES"
+                        android:fontFamily="cursive"
+                        android:text="Groceries"
+                        android:textSize="60dp"
                         android:textColor="#00E8D3"
-                        android:textStyle="bold" />
+                        android:textStyle="bold|italic" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -93,10 +94,11 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="CLEANING  \n\tPRODUCTS "
+                        android:fontFamily="cursive"
+                        android:text="Cleaning\n\tProducts "
                         android:textColor="#00E8D3"
-                        android:textStyle="bold" />
+                        android:textSize="60dp"
+                        android:textStyle="bold|italic" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -122,10 +124,11 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="TOILETRIES"
+                        android:fontFamily="cursive"
+                        android:textSize="60dp"
+                        android:text="Toiletries"
                         android:textColor="#00E8D3"
-                        android:textStyle="bold" />
+                        android:textStyle="bold|italic" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
         </LinearLayout>

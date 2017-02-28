@@ -12,18 +12,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="org.hitam.epics.biswajeet.anewbeginning.HelpActivity">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:textColor="#b20ef2"
-    android:textStyle="bold|italic"
-    android:text="\n\nThe New Beginning for Homeless App Helps The Donors to Donate Valuables for the Needy to the organization. and can see past and upcoming events of the Organization\n\n\t\t Be a part of this Great Cause please
-       Donate and become an Inspiration\n\n\n\n\n                            Contact\n\n anewbeginningforhomeless@gmail.com. \n           \n                        08801485611 "
-    android:textSize="28sp"/>
-</ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="#b20ef2"
+        android:textStyle="bold|italic"
+        android:text="\n\nThe New Beginning for Homeless App Helps The Donors to Donate Valuables for the Needy to the organization. and can see past and upcoming events of the Organization\n\n\t\t Be a part of this Great Cause please
+           Donate and become an Inspiration\n\n\n\n\n                            Contact\n\n anewbeginningforhomeless@gmail.com. \n           \n                        08801485611 "
+        android:textSize="18sp"/>
+    </ScrollView>
 
 
 </LinearLayout>
