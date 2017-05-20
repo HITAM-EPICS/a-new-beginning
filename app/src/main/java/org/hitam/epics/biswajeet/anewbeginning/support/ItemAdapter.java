@@ -50,7 +50,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         itemName.setText(currentItem.getName());
 
         TextView itemPrice = (TextView) newView.findViewById(R.id.item_price);
-        itemPrice.setText(currentItem.getPrice() + "");
+        itemPrice.setText("₹ " + currentItem.getPrice() + "");
 
         return newView;
     }

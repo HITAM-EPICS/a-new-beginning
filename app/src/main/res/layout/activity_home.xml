@@ -13,8 +13,8 @@
     tools:context=".HomeActivity">
 
     <ImageView
-        android:layout_width="230dp"
-        android:layout_height="230dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:src="@drawable/abnf_logo" />
 
     <ProgressBar
@@ -79,12 +79,12 @@
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:onClick="Forgotpass"
                 android:text="Forgot PASSWORD?"
                 android:textAlignment="textStart"
+                android:layout_gravity="start"
                 android:textColor="#000"
                 android:textStyle="bold" />
 
@@ -99,6 +99,7 @@
                 android:onClick="RegisterActivity"
                 android:text="Register"
                 android:textAlignment="textEnd"
+                android:layout_gravity="end"
                 android:textColor="#000"
                 android:textSize="14sp"
                 android:textStyle="bold" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
+    <style name="AppTheme" parent="android:Theme.Material.Light">
         <!-- Customize your theme here. -->
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:colorAccent">@color/colorAccent</item>

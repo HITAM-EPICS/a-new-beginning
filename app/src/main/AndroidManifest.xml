@@ -16,15 +16,21 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name=".SplashScreenActivity">
+        <activity
+            android:name=".SplashScreenActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".DonateActivity" />
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".DonateActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".ItemListActivity" />
         <activity android:name=".AddToCartActivity" />
         <activity android:name=".RegisterActivity" />
@@ -43,7 +49,9 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".CheckoutActivity" />
+        <activity
+            android:name=".CheckoutActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".AddItemActivity" />
         <activity android:name=".HelpActivity"></activity>
     </application>
